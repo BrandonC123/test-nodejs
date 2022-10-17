@@ -34,3 +34,29 @@ fs.appendFile("file.txt", content, (error) => {
         console.log(error);
     }
 });
+
+fs.readFile(
+    "C:/Users/bchu3/Desktop/programming stuff/Web Development/test-nodejs/test.txt",
+    "utf8",
+    (err, data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log(data);
+    }
+);
+
+async function promiseReadFile() {
+    try {
+        const data = await fs.readFile(
+            "C:/Users/bchu3/Desktop/programming stuff/Web Development/test-nodejs/test.txt",
+            { encoding: "utf8" },
+            (err) => {
+                // console.error(err);
+            }
+        );
+        console.log(data);
+    } catch (error) {}
+}
+promiseReadFile();
